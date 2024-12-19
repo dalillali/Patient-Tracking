@@ -1,4 +1,4 @@
-# Multi-stage Dockerfile for the patient microservice
+# Multi-stage Dockerfile for the Alert Notification Service
 
 # Stage 1: Build
 FROM maven:3.8.7-openjdk-21 AS builder
@@ -24,7 +24,7 @@ WORKDIR /app
 COPY --from=builder /app/target/*.jar app.jar
 
 # Expose the application port
-EXPOSE 8080
+EXPOSE 8082
 
 # Run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]

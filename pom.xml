@@ -25,14 +25,14 @@
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
-        <version>3.3.1</version>
+        <version>3.2.2</version> <!-- Latest 3.2.x release -->
         <scope>import</scope>
         <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-dependencies</artifactId>
-        <version>2022.0.5</version>
+        <version>2023.0.0</version> <!-- First stable 2023.x release -->
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -56,7 +56,7 @@
         <plugin>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-maven-plugin</artifactId>
-          <version>3.3.1</version>
+          <version>3.2.2</version>
         </plugin>
         </plugins>
     </build>

@@ -4,9 +4,11 @@ import com.patientcare.doctor.entity.Doctor;
 import com.patientcare.doctor.service.DoctorService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,6 +20,14 @@ import java.util.Optional;
 public class DoctorController {
 
     private final DoctorService doctorService;
+    @Autowired
+    private RestTemplate restTemplate;
+
+    @GetMapping("/call-patient")
+    public String callPatientService() {
+        String url = "http://patient/api/patients"; // Use Eureka application name
+        return restTemplate.getForObject(url, String.class);
+    }
 
     // Get all doctors
     @GetMapping

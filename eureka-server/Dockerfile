@@ -1,4 +1,3 @@
-# Multi-stage Dockerfile for the patient microservice
 
 # Stage 1: Build
 FROM maven:3.8.7-openjdk-21 AS builder
@@ -23,8 +22,8 @@ WORKDIR /app
 # Copy the built JAR from the builder stage
 COPY --from=builder /app/target/*.jar app.jar
 
-# Expose the application port
-EXPOSE 8080
+# Expose the application port for Eureka dashboard
+EXPOSE 8761
 
 # Run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]
